@@ -41,10 +41,10 @@ MyPet is an all-in-one pet care companion that helps pet owners:
 ## Tech Stack
 
 ### **Frontend**
-    - **React Native** with **Expo** for cross-platform mobile development (iOS & Android)
-    - **TypeScript** for type safety
-    - **React Native Paper** implementing Material Design 3
-    - **Expo Location** & **OSM (Open Street Map)** for GPS tracking and mapping
+ - **React Native** with **Expo** for cross-platform mobile development (iOS & Android)
+ - **TypeScript** for type safety 
+ - **React Native Paper** implementing Material Design 3
+ - **Expo Location** & **OSM (Open Street Map)** for GPS tracking and mapping
 
 ### Data Storage
     - 
