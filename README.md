@@ -15,6 +15,40 @@ MyPet is an all-in-one pet care companion that helps pet owners:
 - Schedule events using an integrated calendar for reminders and appointments
 - Share access with family members through sub-user accounts
 
+### Key use cases
+
+1. **Health Management**
+    - Record and track vaccinations with expiration dates.
+    - Manage ongoing medications with start and end dates.
+    - Document veterinary visits with location, costs and notes.
+    - Monitor pet weight changes over time with a graphical visualization.
+
+2. **Activity tracking**
+    - Record walks with GPS tracking and route mapping.
+    - Track distance, duration, speed and step count.
+    - View walk history with detailed statistics.
+    - Sync walk data to cloud storage (optional)
+
+3. **Organization & Planning**
+    - Create calendar events for appointments, grooming and other activities.
+    - Manage multiple pets from a single account.
+    - Access pet information across devices.
+
+4. **Multi user collaboration**
+    - Share pet information to friends, family, veterinarian or a caretaker.
+    - Assign roles with different permission levels
+    
+## Tech Stack
+
+### **Frontend**
+    - **React Native** with **Expo** for cross-platform mobile development (iOS & Android)
+    - **TypeScript** for type safety
+    - **React Native Paper** implementing Material Design 3
+    - **Expo Location** & **OSM (Open Street Map)** for GPS tracking and mapping
+
+### Data Storage
+    - 
+
 ## Documents
 
 ### Repository structure
