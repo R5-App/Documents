@@ -54,6 +54,14 @@ MyPet is an all-in-one pet care companion that helps pet owners:
  - **Deployment**: Docker containerization support.
  - **API Design**: RESTful architecture designed for mobile app consumption.
 
+### Database Schema
+
+The application uses PostgreSQL with the following Entity Relationship Diagram (ERD):
+
+![Database ERD Schema](images/ERD.png)
+
+The database schema includes tables for users, pets, health records (vaccinations, medications, vet visits), weight tracking, calendar events, and walk routes. The schema supports multi-user collaboration through role-based access control.
+
 ### Data Storage
  - **AsyncStorage** for local data persistence.
  - Cloud sync capabilities for walk routes.
