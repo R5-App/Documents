@@ -46,14 +46,6 @@ MyPet is an all-in-one pet care companion that helps pet owners:
  - **React Native Paper** implementing Material Design 3.
  - **Expo Location** & **OSM (Open Street Map)** for GPS tracking and mapping.
 
-### Data Storage
- - **AsyncStorage** for local data persistence.
- - Cloud sync capabilities for walk routes.
-
-### Backend Integration
- - RESTful API communication via Axios.
- - Services for pets health records, walks & calendar events.
-
 ### **Backend**
  - **Backend Framework**: Express.js (Node.js).
  - **Database**: PostgreSQL.
@@ -61,6 +53,14 @@ MyPet is an all-in-one pet care companion that helps pet owners:
  - **Security**: Helmet for security headers, CORS protection, rate limiting for API abuse prevention.
  - **Deployment**: Docker containerization support.
  - **API Design**: RESTful architecture designed for mobile app consumption.
+
+### Data Storage
+ - **AsyncStorage** for local data persistence.
+ - Cloud sync capabilities for walk routes.
+
+### Backend Integration
+ - RESTful API communication via Axios.
+ - Services for pets health records, walks & calendar events.
 
 ### Key features
 - Secure user registration & login.
