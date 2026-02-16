@@ -38,9 +38,9 @@ MyPet is an all-in-one pet care companion that helps pet owners:
     - Share pet information to friends, family, veterinarian or a caretaker.
     - Assign roles with different permission levels.
     
-# Tech Stack
+## Tech Stack
 
-## **Frontend**
+### **Frontend**
  - **React Native** with **Expo** for cross-platform mobile development (iOS & Android).
  - **TypeScript** for type safety.
  - **React Native Paper** implementing Material Design 3.
@@ -54,7 +54,7 @@ MyPet is an all-in-one pet care companion that helps pet owners:
  - RESTful API communication via Axios.
  - Services for pets health records, walks & calendar events.
 
-## **Backend**
+### **Backend**
  - **Backend Framework**: Express.js (Node.js).
  - **Database**: PostgreSQL.
  - **Authentication**: JWT (JSON Web Tokens) with bcrypt password hashing.
