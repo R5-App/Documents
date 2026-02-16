@@ -38,7 +38,7 @@ MyPet is an all-in-one pet care companion that helps pet owners:
     - Share pet information to friends, family, veterinarian or a caretaker.
     - Assign roles with different permission levels.
     
-## Tech Stack
+# Tech Stack
 
 ## **Frontend**
  - **React Native** with **Expo** for cross-platform mobile development (iOS & Android).
