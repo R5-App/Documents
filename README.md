@@ -243,9 +243,7 @@ application/
 ```
 Documents/
 ├── images/            # Documentation images
-│
-│
-├──
+├── ProjectDocs        # Other documentation files
 └── README.md          # This file
 ```
 
