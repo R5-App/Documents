@@ -242,9 +242,32 @@ application/
 
 ```
 Documents/
-├── images/            # Documentation images
-├── ProjectDocs        # Other documentation files
-└── README.md          # This file
+├── images/                          # Documentation images
+│   └── ERD.png                     # Database Entity Relationship Diagram
+├── ProjectDocs/                     # Project documentation files
+│   ├── Palaverimuistiot/           # Scrum meeting notes (Finnish)
+│   │   ├── scrum_palaverimuistio 6.1.-13.1.2026.docx
+│   │   ├── scrum_palaverimuistio 15.1.2026 .docx
+│   │   ├── scrum_palaverimuistio 18.1.2026.docx
+│   │   ├── scrum_palaverimuistio 22.1.2026.docx
+│   │   ├── Scrum palaverimuistio 25.1.2026.docx
+│   │   ├── Scrum palaverimuistio 26.1.2026.docx
+│   │   ├── Scrum palaverimuistio 29.1.2026.docx
+│   │   ├── Scrum palaverimuistio 1.2.2026.docx
+│   │   ├── Scrum palaverimuistio 4.2.2026.docx
+│   │   ├── Scrum palaverimuistio 9.2.2026.docx
+│   │   ├── Scrum palaverimuistio 12.2.2026.docx
+│   │   ├── Scrum palaverimuistio 15.2.2026.docx
+│   │   ├── Scrum palaverimuistio 16.2.2026.docx
+│   │   ├── Scrum palaverimuistio 17.2.2026.docx
+│   │   ├── Scrum palaverimuistio 18.2.2026.docx
+│   │   └── Scrum palaverimuistio 19.2.2026.docx
+│   ├── PrivacyPolicy.md            # Application privacy policy
+│   ├── README.md                    # Project documentation main file
+│   ├── Security Audit Report R5-App - February 2026-1.pdf  # Security audit results
+│   ├── Työajan seuranta.xlsx       # Time tracking spreadsheet
+│   └── wireframe.pdf                # UI/UX wireframes
+└── README.md                        # This file
 ```
 
 ## Postman
