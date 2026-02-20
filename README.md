@@ -247,3 +247,9 @@ Documents/
 └── README.md          # This file
 ```
 
+## Postman
+
+Access the API documentation and test the endpoints using Postman:
+
+https://documenter.getpostman.com/view/48372140/2sBXcEk16i
+
