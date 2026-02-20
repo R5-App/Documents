@@ -92,150 +92,188 @@ The application follows **Material Design 3** principles, providing:
 ### Backend
 
 ```
-pet-app-backend/
-├── .github/                          # GitHub workflows and configurations
-├── .gitignore                        # Git ignore rules
-├── LICENSE                           # Project license
-├── database.sql                      # PostgreSQL database schema
-├── package-lock.json                 # Root dependency lock file
+server/
+├── database.sql              # PostgreSQL database schema
+├── LICENSE                   # License information
+├── README.md                 # This documentation
 │
-└── backend/                          # Main backend application
-    ├── .env.example                  # Environment variables template
-    ├── .gitignore                    # Backend-specific ignore rules
-    ├── docker-compose.ci.yml         # Docker Compose for CI/CD
-    ├── DockerFile                    # Docker container configuration
-    ├── package.json                  # NPM dependencies and scripts
-    ├── package-lock.json             # Dependency lock file
-    ├── README.md                     # Backend documentation
+└── backend/                  # Main application directory
+    ├── docker-compose.ci.yml # Docker Compose for CI/testing
+    ├── Dockerfile            # Container definition
+    ├── package.json          # Node.js dependencies and scripts
     │
-    └── src/                          # Source code
-        ├── index.js                  # Application entry point
-        │
-        ├── config/                   # Configuration files
-        │   ├── database.js              # PostgreSQL connection pool
-        │   └── jwt.js                   # JWT configuration
-        │
-        ├── controllers/              # Request handlers (business logic)
-        │   ├── authController.js        # Authentication (login, register)
-        │   ├── calendarEventController.js  # Calendar event management
-        │   ├── medicationController.js  # Medication tracking
-        │   ├── petController.js         # Pet profile management
-        │   ├── routeController.js       # Route tracking
-        │   ├── vaccinationController.js # Vaccination records
-        │   ├── vetVisitController.js    # Vet visit tracking
-        │   └── weightController.js      # Weight monitoring
-        │
-        ├── middleware/               # Express middleware
-        │   ├── authenticateToken.js     # JWT authentication middleware
-        │   ├── resolveEffectiveUser.js  # User resolution logic
-        │   ├── validateLogin.js         # Login validation
-        │   ├── validateRegistration.js  # Registration validation
-        │   ├── validateSubUserRegistration.js  # Sub-user registration validation
-        │   └── validateSubUserRoleUpdate.js    # Role update validation
-        │
-        ├── models/                   # Database models (Data access layer)
-        │   ├── CalendarEvent.js         # Calendar event model
-        │   ├── Medication.js            # Medication model
-        │   ├── Pet.js                   # Pet model
-        │   ├── Route.js                 # Route model
-        │   ├── User.js                  # User model
-        │   ├── Vaccination.js           # Vaccination model
-        │   ├── VetVisit.js              # Vet visit model
-        │   └── Weight.js                # Weight model
-        │
-        ├── routes/                   # API route definitions
-        │   ├── calendarEventRoutes.js   # /api/calendar-events endpoints
-        │   ├── medicationRoutes.js      # /api/medications endpoints
-        │   ├── petRoutes.js             # /api/pets endpoints
-        │   ├── routeRoutes.js           # /api/routes endpoints
-        │   ├── userRoutes.js            # /api/auth & /api/users endpoints
-        │   ├── vaccinationRoutes.js     # /api/vaccinations endpoints
-        │   ├── vetVisitRoutes.js        # /api/vet-visits endpoints
-        │   └── weightRoutes.js          # /api/weights endpoints
-        │
-        ├── services/                 # Business logic services (future)
-        │
-        ├── types/                    # Type definitions (future)
-        │
-        └── utils/                    # Utility functions
-            ├── generateToken.js         # JWT token generation
-            ├── hashPassword.js          # Password hashing with bcrypt
-            └── shareCode.js             # Share code generation
+    ├── src/                  # Source code
+    │   ├── index.js          # Application entry point & server config
+    │   ├── PRIVACY_POLICY.html
+    │   │
+    │   ├── config/           # Configuration modules
+    │   │   ├── database.js   # PostgreSQL connection pool
+    │   │   └── jwt.js        # JWT token configuration
+    │   │
+    │   ├── controllers/      # Business logic & request handlers
+    │   │   ├── authController.js        # User authentication & account management
+    │   │   ├── avatarController.js      # Avatar upload & retrieval
+    │   │   ├── calendarEventController.js # Calendar event CRUD operations
+    │   │   ├── medicationController.js  # Medication tracking
+    │   │   ├── petController.js         # Pet profile management & sharing
+    │   │   ├── routeController.js       # GPS route tracking
+    │   │   ├── vaccinationController.js # Vaccination records
+    │   │   ├── vetVisitController.js    # Vet visit tracking
+    │   │   └── weightController.js      # Weight monitoring
+    │   │
+    │   ├── middleware/       # Request processing pipeline
+    │   │   ├── authenticateToken.js           # JWT validation
+    │   │   ├── avatarUpload.js                # Multer file upload config
+    │   │   ├── resolveEffectiveUser.js        # Multi-user & sub-user resolution
+    │   │   ├── validateLogin.js               # Login input validation
+    │   │   ├── validateRegistration.js        # Registration input validation
+    │   │   ├── validateSubUserRegistration.js # Sub-user creation validation
+    │   │   └── validateSubUserRoleUpdate.js   # Role update validation
+    │   │
+    │   ├── models/           # Database access layer
+    │   │   ├── Avatar.js         # Avatar database operations
+    │   │   ├── CalendarEvent.js  # Calendar event queries
+    │   │   ├── Medication.js     # Medication CRUD
+    │   │   ├── Pet.js            # Pet profile & sharing logic
+    │   │   ├── Route.js          # GPS route storage
+    │   │   ├── User.js           # User & authentication queries
+    │   │   ├── Vaccination.js    # Vaccination records
+    │   │   ├── VetVisit.js       # Vet visit data
+    │   │   └── Weight.js         # Weight tracking
+    │   │
+    │   ├── routes/           # API endpoint definitions
+    │   │   ├── avatarRoutes.js         # /api/avatars/*
+    │   │   ├── calendarEventRoutes.js  # /api/calendar-events/*
+    │   │   ├── medicationRoutes.js     # /api/medications/*
+    │   │   ├── petRoutes.js            # /api/pets/*
+    │   │   ├── routeRoutes.js          # /api/routes/*
+    │   │   ├── userRoutes.js           # /api/auth/*
+    │   │   ├── vaccinationRoutes.js    # /api/vaccinations/*
+    │   │   ├── vetVisitRoutes.js       # /api/vet-visits/*
+    │   │   └── weightRoutes.js         # /api/weights/*
+    │   │
+    │   ├── services/         # Business logic services (reserved for future use)
+    │   │
+    │   ├── types/            # Type definitions (reserved for future use)
+    │   │
+    │   └── utils/            # Helper functions & utilities
+    │       ├── generateToken.js  # JWT token generation
+    │       ├── hashPassword.js   # bcrypt password hashing
+    │       └── shareCode.js      # Pet sharing code generation
+    │
+    └── uploads/              # File storage
+        └── avatars/          # User & pet avatar images
 ```
 
 ### Application
 
 ```
-application/
-│
-├── mobile/                          # React Native mobile application
-│   ├── src/
-│   │   ├── components/              # Reusable UI components
-│   │   │   ├── AddPetDialog.tsx     # Modal for adding new pets
-│   │   │   ├── PetCard.tsx          # Pet display card component
-│   │   │   └── ...
-│   │   │
-│   │   ├── contexts/                # React Context providers for state management
-│   │   │   ├── AuthContext.tsx      # Authentication state & user management
-│   │   │   ├── WalkContext.tsx      # Walk tracking, GPS, pedometer, sync
-│   │   │   └── SnackbarContext.tsx  # Toast notifications
-│   │   │
-│   │   ├── helpers/                 # Utility functions
-│   │   │   └── index.ts             # Date formatting, age calculation, validation
-│   │   │
-│   │   ├── navigation/              # Navigation configuration
-│   │   │   └── Navigation.tsx       # Stack & tab navigators setup
-│   │   │
-│   │   ├── screens/                 # Application screens
-│   │   │   ├── PetsScreen.tsx       # Pet list view
-│   │   │   ├── PetProfileScreen.tsx # Individual pet details & management
-│   │   │   ├── MapScreen.tsx        # GPS walk tracking with OpenStreetMap
-│   │   │   ├── CalendarScreen.tsx   # Event scheduling & reminders
-│   │   │   ├── ProfileScreen.tsx    # User account management
-│   │   │   ├── LoginScreen.tsx      # Authentication
-│   │   │   ├── RegisterScreen.tsx   # User registration
-│   │   │   ├── VaccinationsScreen.tsx        # Vaccination records
-│   │   │   ├── MedicationsScreen.tsx         # Medication tracking
-│   │   │   ├── VetVisitsScreen.tsx           # Veterinary visit history
-│   │   │   ├── WeightManagementScreen.tsx    # Weight tracking & charts
-│   │   │   └── ...
-│   │   │
-│   │   ├── services/                # API & data management
-│   │   │   ├── api.ts               # Axios configuration & interceptors
-│   │   │   ├── petService.ts        # Pet CRUD operations
-│   │   │   ├── authService.ts       # Authentication API calls
-│   │   │   ├── routeService.ts      # Walk route sync with backend
-│   │   │   ├── storageService.ts    # AsyncStorage wrapper
-│   │   │   ├── calendarService.ts   # Calendar event management
-│   │   │   └── ...
-│   │   │
-│   │   ├── styles/                  # Styling & theming
-│   │   │   ├── theme.ts             # Material Design 3 theme configuration
-│   │   │   ├── screenStyles.ts      # Screen-specific styles
-│   │   │   └── ...
-│   │   │
-│   │   ├── types/                   # TypeScript type definitions
-│   │   │   └── index.ts             # Interfaces for Pet, User, Walk, etc.
-│   │   │
-│   │   └── App.tsx                  # Root application component
+mobile/
+├── src/
+│   ├── App.tsx                      # Root application component
 │   │
-│   ├── assets/                      # Static resources
-│   │   ├── images/                  # Image files
-│   │   └── fonts/                   # Custom fonts
+│   ├── assets/                      # Static assets
+│   │   ├── fonts/                   # Custom fonts
+│   │   ├── icons/                   # Icon assets
+│   │   └── images/                  # Image assets
 │   │
-│   ├── app.json                     # Expo configuration
-│   ├── package.json                 # Dependencies & scripts
-│   ├── tsconfig.json                # TypeScript configuration
-│   └── README.md                    # Mobile app documentation
+│   ├── components/                  # Reusable UI components
+│   │   ├── AvatarDisplay.tsx        # Pet avatar display component
+│   │   ├── AvatarUploadDialog.tsx   # Avatar upload modal
+│   │   ├── RedeemShareCodeDialog.tsx # Share code redemption
+│   │   ├── SharePetDialog.tsx       # Pet sharing dialog
+│   │   ├── SwipeableCard.tsx        # Swipeable card component
+│   │   └── SyncSetupDialog.tsx      # Sync configuration dialog
+│   │
+│   ├── screens/                     # Application screens
+│   │   ├── AddPetScreen.tsx         # Add new pet
+│   │   ├── CalendarScreen.tsx       # Calendar view
+│   │   ├── HealthScreen.tsx         # Health records hub
+│   │   ├── HomeScreen.tsx           # Main dashboard
+│   │   ├── LoginScreen.tsx          # User login
+│   │   ├── MapScreen.tsx            # Map view for walks
+│   │   ├── MedicationsScreen.tsx    # Medication management
+│   │   ├── PetProfileScreen.tsx     # Individual pet profile
+│   │   ├── PetsScreen.tsx           # Pet list view
+│   │   ├── ProfileScreen.tsx        # User profile
+│   │   ├── RegisterScreen.tsx       # User registration
+│   │   ├── SettingsScreen.tsx       # App settings
+│   │   ├── VaccinationsScreen.tsx   # Vaccination records
+│   │   ├── VisitsScreen.tsx         # Veterinary visits
+│   │   ├── WalkDetailScreen.tsx     # Walk tracking detail
+│   │   ├── WalkHistoryScreen.tsx    # Walk history list
+│   │   └── WeightManagementScreen.tsx # Weight tracking
+│   │
+│   ├── navigation/                  # Navigation configuration
+│   │   └── Navigation.tsx           # App navigation structure
+│   │
+│   ├── services/                    # Business logic & API layer
+│   │   ├── api.ts                   # Base API client (Axios)
+│   │   ├── authService.ts           # Authentication service
+│   │   ├── avatarService.ts         # Avatar management
+│   │   ├── calendarService.ts       # Calendar events
+│   │   ├── locationService.ts       # GPS & location tracking
+│   │   ├── medicationsService.ts    # Medication records
+│   │   ├── petService.ts            # Pet data management
+│   │   ├── routeService.ts          # Walk route tracking
+│   │   ├── storageService.ts        # Local storage (AsyncStorage)
+│   │   ├── vaccinationsService.ts   # Vaccination records
+│   │   ├── visitsService.ts         # Veterinary visits
+│   │   └── weightsService.ts        # Weight tracking
+│   │
+│   ├── contexts/                    # React Context providers
+│   │   ├── AuthContext.tsx          # Authentication state
+│   │   ├── SnackbarContext.tsx      # Global notifications
+│   │   ├── WalkContext.tsx          # Walk tracking state
+│   │   └── index.ts                 # Context exports
+│   │
+│   ├── hooks/                       # Custom React hooks
+│   │   └── index.ts                 # Hook exports
+│   │
+│   ├── helpers/                     # Helper functions
+│   │   └── index.ts                 # Helper exports
+│   │
+│   ├── utils/                       # Utility functions
+│   │   └── constants.ts             # App constants
+│   │
+│   ├── config/                      # Application configuration
+│   │   └── index.ts                 # Config settings (API URLs)
+│   │
+│   ├── types/                       # TypeScript type definitions
+│   │   └── index.ts                 # Type exports
+│   │
+│   └── styles/                      # Styling & theming
+│       ├── theme.ts                 # MD3 theme (colors, typography)
+│       ├── authStyles.ts            # Auth screen styles
+│       ├── screenStyles.ts          # Screen-specific styles
+│       ├── index.ts                 # Style exports
+│       └── README.md                # Design system documentation
 │
-├── backend/                         # Backend API server (if applicable)
-│   ├── controllers/                 # Request handlers
-│   ├── models/                      # Database models
-│   ├── routes/                      # API endpoints
-│   ├── middleware/                  # Authentication, validation, etc.
-│   └── ...
+├── android/                         # Android native code
+│   ├── app/                         # Android app module
+│   │   ├── src/
+│   │   │   ├── main/
+│   │   │   │   ├── AndroidManifest.xml
+│   │   │   │   ├── java/com/mypet/ # Native Java code
+│   │   │   │   └── res/             # Android resources
+│   │   │   ├── debug/               # Debug build configuration
+│   │   │   └── debugOptimized/      # Optimized debug build
+│   │   ├── build.gradle             # App build configuration
+│   │   └── proguard-rules.pro       # ProGuard rules
+│   ├── gradle/                      # Gradle wrapper
+│   ├── build.gradle                 # Project build configuration
+│   ├── settings.gradle              # Project settings
+│   ├── gradle.properties            # Gradle properties
+│   ├── gradlew                      # Gradle wrapper (Unix)
+│   └── gradlew.bat                  # Gradle wrapper (Windows)
 │
-└── README.md                        # Main project documentation
+├── app.json                         # Expo configuration
+├── babel.config.js                  # Babel configuration
+├── eslint.config.mjs                # ESLint configuration
+├── metro.config.js                  # Metro bundler configuration
+├── tsconfig.json                    # TypeScript configuration
+├── package.json                     # Dependencies and scripts
+└── index.ts                         # App entry point
 ```
 
 ### Documents
